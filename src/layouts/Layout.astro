@@ -5,12 +5,13 @@ import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
+  header: boolean;
   footer: boolean;
-  linear_x: string;
-  linear_y: string;
+  linear_x?: string;
+  linear_y?: string;
 }
 
-const { title, footer, linear_x, linear_y } = Astro.props;
+const { title, header, footer, linear_x, linear_y } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,7 +25,7 @@ const { title, footer, linear_x, linear_y } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Header />
+    {header && <Header />}
     <slot />
     {footer && <Footer />}
   </body>
@@ -47,5 +48,19 @@ const { title, footer, linear_x, linear_y } = Astro.props;
       #011b45 0%,
       #161618 100%
     );
+  }
+
+  ::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #151617;
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #061a3b;
+    border-radius: 100px;
   }
 </style>

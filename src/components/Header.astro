@@ -7,9 +7,9 @@ const logoSize = 32;
 
 const items = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "Products", href: "/products" },
-  { name: "Contact", href: "/contact" },
+  { name: "Services", href: "#Services" },
+  { name: "Products", href: "#Products" },
+  { name: "Contact", href: "#Contact" },
 ];
 ---
 
@@ -24,12 +24,17 @@ const items = [
           height={logoSize}
           class="rounded-3xl"
         />
-        <h1 class="text-xl font-bold">Byteteural</h1>
+        <a href="/" class="text-xl font-bold hover:translate-x-1 duration-300"
+          >Byteteural</a
+        >
       </div>
       <nav class="hidden md:flex gap-8">
         {
           items.map(item => (
-            <a class="hover:text-[#6698FE] duration-300" href={item.href}>
+            <a
+              class="dropshadow textline hover:text-[#6698FE] duration-300 p-4 font-bold text-lg"
+              href={item.href}
+            >
               {item.name}
             </a>
           ))
@@ -38,3 +43,34 @@ const items = [
     </section>
   </Container>
 </header>
+
+<style>
+  .dropshadow:hover {
+    filter: drop-shadow(0px 0px 18px #959bf0);
+  }
+
+  .textline {
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: inline-block;
+    position: relative;
+  }
+  .textline:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #6698fe;
+    transition:
+      width 0.3s ease 0s,
+      left 0.3s ease 0s;
+    width: 0;
+  }
+  .textline:hover:after {
+    width: 100%;
+    left: 0;
+  }
+</style>
