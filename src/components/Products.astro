@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+---
+
+<main class="max-w-7xl mx-auto my-12">
+  <h2 id="Products" class="appear text-6xl text-center my-12">Products</h2>
+  <section class="appear grid grid-cols-2">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium esse
+      voluptatem officiis tempore, repellat voluptatibus sit. Quidem atque,
+      sapiente quia ex nesciunt accusantium ipsum adipisci consequatur, magnam
+      nobis necessitatibus. Quod.
+    </p>
+    <figure class="items-center flex justify-center">
+      <Image
+        src="https://placedog.net/240/240"
+        alt="Image"
+        width={240}
+        height={240}
+      />
+    </figure>
+  </section>
+</main>
+
+<style>
+  .appear {
+    animation: appearRight both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+  }
+
+  @keyframes appearRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+</style>

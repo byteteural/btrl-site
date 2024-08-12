@@ -1,14 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import WaveLayout from "../layouts/WaveLayout.astro";
-import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
+
+import Services from "../components/Services.astro";
+import Products from "../components/Products.astro";
+import Contact from "../components/Contact.astro";
 ---
 
-<Layout title="Byteteural" header={false} footer={true}>
+<Layout title="Byteteural" header={true} footer={true}>
   <section>
-    <Header />
     <Hero />
+    <WaveLayout>
+      <Services />
+      <Products />
+      <Contact />
+    </WaveLayout>
   </section>
-  <WaveLayout />
 </Layout>
