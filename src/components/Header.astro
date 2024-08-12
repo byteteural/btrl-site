@@ -1,0 +1,40 @@
+---
+import Container from "./Container.astro";
+import { Image } from "astro:assets";
+import btrl from "../assets/btrl.png";
+
+const logoSize = 32;
+
+const items = [
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "Products", href: "/products" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<header class="my-8">
+  <Container>
+    <section class="flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <Image
+          src={btrl}
+          alt="Astro logo"
+          width={logoSize}
+          height={logoSize}
+          class="rounded-3xl"
+        />
+        <h1 class="text-xl font-bold">Byteteural</h1>
+      </div>
+      <nav class="hidden md:flex gap-8">
+        {
+          items.map(item => (
+            <a class="hover:text-[#6698FE] duration-300" href={item.href}>
+              {item.name}
+            </a>
+          ))
+        }
+      </nav>
+    </section>
+  </Container>
+</header>

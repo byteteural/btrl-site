@@ -1,0 +1,14 @@
+---
+import { Icon } from "astro-icon/components";
+import social from "../config/social.json";
+---
+
+<section class="text-xl flex justify-center items-center gap-4 mt-4 md:mt-0">
+  {
+    social.map(({ name, url }) => (
+      <a href={url}>
+        <Icon name={name} />
+      </a>
+    ))
+  }
+</section>
